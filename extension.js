@@ -100,7 +100,13 @@ Controller = new Lang.Class({ // based on https://superuser.com/questions/471606
             }
         }
         if(seen) {
+            if (!wm.has_focus) {
                 focusWindow(wm);
+            } else {
+                const lastWindow = global.display.get_tab_list(0, null)[1];
+                if (lastWindow) {
+                    focusWindow(lastWindow);
+                }
             }
         } else {
             imports.misc.util.spawnCommandLine(launch);
