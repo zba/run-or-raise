@@ -85,7 +85,7 @@ Controller = new Lang.Class({ // based on https://superuser.com/questions/471606
         for (let w of global.get_window_actors()) {
             var wm = w.get_meta_window();
             var window_class = wm.get_wm_class();
-            var window_title = wm_get_title();
+            var window_title = wm.get_title();
             if(wm_class) { // seek by class
                 if(window_class && window_class[wmFn](wm_class) > -1 && (!title || (window_title && window_title[titleFn](title) > -1))) {
                     seen = wm; // wm_class AND if set, title must match
