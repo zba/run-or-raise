@@ -98,7 +98,8 @@ Controller = new Lang.Class({ // based on https://superuser.com/questions/471606
             }
         }               
         if(seen) {            
-            wm.activate(0);   
+                focusWindow(wm);
+            }
         } else {
             imports.misc.util.spawnCommandLine(launch);
         }
@@ -172,4 +173,9 @@ function enable(settings) {
 
 function disable() {
   app.disable();
+}
+
+function focusWindow(wm) {
+    wm.get_workspace().activate_with_focus(wm, true);
+    wm.activate(0);
 }
